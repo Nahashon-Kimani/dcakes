@@ -8,6 +8,7 @@ use App\Models\Shipping;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Cart;
 
 class CheckoutComponent extends Component
 {
@@ -60,7 +61,6 @@ class CheckoutComponent extends Component
                 's_mobile'=>'required|numeric',
                 's_location'=>'required',
                 's_ready_by'=>'required',
-                'paymentMode'=>'required',
             ]);
         }
     }
@@ -95,7 +95,7 @@ class CheckoutComponent extends Component
         $order->save();
 
 
-        foreach (Cart::instance('cart') as $item) 
+        foreach (Cart::instance('cart')->content() as $item) 
         {
             $orderItem = new OrderItem();
             $orderItem->product_id = $item->id;
@@ -113,8 +113,8 @@ class CheckoutComponent extends Component
                 's_email'=>'required|email',
                 's_mobile'=>'required|numeric',
                 's_location'=>'required',
-                's_ready_by'=>'required',
-                'paymentMode'=>'required',
+                // 's_ready_by'=>'required',
+                // 'paymentMode'=>'required',
             ]);
 
 
@@ -124,9 +124,9 @@ class CheckoutComponent extends Component
             $shipping->email = $this->s_email;
             $shipping->mobile = $this->s_mobile;
             $shipping->location = $this->s_location;
-            $shipping->special_instructions = $this->s_special_instruction;
-            $shipping->country = 'Kenya';
-            $shipping->ready_by = $this->s_ready_by;
+            // $shipping->special_instructions = $this->s_special_instruction;
+            // $shipping->country = 'Kenya';
+            // $shipping->ready_by = $this->s_ready_by;
             $shipping->save();
         }
 

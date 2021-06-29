@@ -142,7 +142,7 @@ class CartComponent extends Component
     // Checkout 
     public function setAmountforCheckout()
     {
-        if (!Cart::instance('cart') > 0) {
+        if (!Cart::instance('cart')->count() > 0) {
            session()->forget('checkout');
            return;
         }
