@@ -105,6 +105,10 @@
 											@else
 												<li><a href="#"><i class="fa fa-user"></i> My Account {{ Auth::user()->name }}</a></li>
 												<li><a href="{{ route('user.dashboard') }}"><i class="fa fa-user"></i> Dashboard </a></li>
+												<li><a href="{{ route('user.orders') }}"><i class="fa fa-user"></i> My Orders </a></li>
+
+
+
 												<li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()"><i class="fa fa-sign-out"></i> Logout </a></li>
 												<form action="{{ route('logout') }}" method="post" id="logout-form">
 													@csrf

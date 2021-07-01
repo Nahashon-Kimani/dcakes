@@ -1,8 +1,8 @@
-@section('title', 'ORDER DETAILS')
+@section('title', 'MY ORDER DETAILS')
 
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i></a></li>
+        <li><a href="/"><i class="fa fa-home"></i></a></li>
         <li><a href="#">Order Infomation</a></li>
     </ul>
     
@@ -11,16 +11,7 @@
         <div id="content" class="col-sm-10 col-sm-offset-1">
             <div class="row">
                 <div class="col-md-6">
-                    <h2 class="title">Order Information</h2>`
-                </div>
-                <div class="col-md-6">
-                    <div class="buttons clearfix">
-                        <div class="pull-right">
-                            <a class="btn btn-primary btn-sm text-uppercase" href="{{ route('admin.orders') }}">
-                                All Orders
-                            </a>
-                        </div>
-                    </div>
+                    <h2 class="title">My Order Information</h2>`
                 </div>
             </div>
 
@@ -189,16 +180,6 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="buttons clearfix">
-                <div class="pull-right">
-                    <a class="btn btn-primary text-uppercase" href="{{ route('admin.orders') }}">
-                        Back to Orders
-                    </a>
-                </div>
-            </div>
-
-
-
         </div>
         <!--Middle Part End-->
     </div>

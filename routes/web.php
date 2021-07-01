@@ -21,6 +21,8 @@ use App\Http\Livewire\ProductDetailsComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\User\UserOrderDetailsComponent;
+use App\Http\Livewire\User\UserOrdersComponent;
 use App\Http\Livewire\WishlistComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -59,16 +61,21 @@ Route::get('/thank-you', ThankyouComponent::class)->name('thankyou');
 
 Route::middleware(['auth:sanctum', 'verified', 'admin'])->group(function(){
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
+    
     Route::get('/admin/category', CategoryComponent::class)->name('admin.category');
     Route::get('/admin/category/add', AddNewCategoryComponent::class)->name('admin.addcategory');
     Route::get('/admin/category/edit/{category_slug}', EditCategoryComponent::class)->name('admin.editcategory');
+    
     Route::get('/admin/product', ProductComponent::class)->name('admin.product');
     Route::get('/admin/product/add', AddNewProductComponent::class)->name('admin.addproduct');
     Route::get('/admin/product/edit/{product_slug}', EditProductComponent::class)->name('admin.editproduct');
+    
     Route::get('/admin/home-categories', AdminCategoryComponent::class)->name('admin.home-categories');
+    
     Route::get('/admin/coupons', AdminCouponsComponent::class)->name('admin.coupons');
     Route::get('/admin/coupons/add', AdminAddCouponsComponent::class)->name('admin.addcoupon');
     Route::get('/admin/coupons/edit/{coupon_id}', AdminEditCouponsComponent::class)->name('admin.editcoupon');
+    
     Route::get('/admin/orders', AdminOrderComponent::class)->name('admin.orders');
     Route::get('/admin/orders/{order_id}', AdminOrderDetailsComponent::class)->name('admin.orderdetails');
 });
@@ -76,5 +83,7 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->group(function(){
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
+    Route::get('/user/orders', UserOrdersComponent::class)->name('user.orders');
+    Route::get('/user/orders/{order_id}', UserOrderDetailsComponent::class)->name('user.orderdetails');
 });
 
